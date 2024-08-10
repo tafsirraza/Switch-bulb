@@ -1,0 +1,112 @@
+l<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switchboard with Two Bulbs</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+        }
+
+        .switchboard {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 300px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .bulb {
+            width: 50px;
+            height: 50px;
+            background-color: #bdc3c7;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .bulb.on {
+            background-color: #f1c40f;
+            box-shadow: 0 0 20px 10px #f1c40f;
+        }
+
+        .switch {
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+            background-color: #34495e;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .switch::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: #ecf0f1;
+            border-radius: 50%;
+            position: absolute;
+            top: 2.5px;
+            left: 2.5px;
+            transition: all 0.3s ease;
+        }
+
+        .switch.on {
+            background-color: #27ae60;
+        }
+
+        .switch.on::after {
+            left: 27.5px;
+        }
+
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="switchboard">
+    <div class="control-panel">
+        <div class="switch" id="switch1"></div>
+        <p>Switch 1</p>
+    </div>
+    <div class="bulb" id="bulb1"></div>
+    
+    <div class="control-panel">
+        <div class="switch" id="switch2"></div>
+        <p>Switch 2</p>
+    </div>
+    <div class="bulb" id="bulb2"></div>
+</div>
+
+<script>
+    // Toggle Switch 1
+    document.getElementById('switch1').addEventListener('click', function() {
+        this.classList.toggle('on');
+        document.getElementById('bulb1').classList.toggle('on');
+    });
+
+    // Toggle Switch 2
+    document.getElementById('switch2').addEventListener('click', function() {
+        this.classList.toggle('on');
+        document.getElementById('bulb2').classList.toggle('on');
+    });
+</script>
+
+</body>
+</html>
